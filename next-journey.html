@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="《下一段旅程》AIGC 原创叙事短片 Case Study"
+    />
+    <meta name="theme-color" content="#efeee9" />
+    <title>下一段旅程｜AIGC Film Case Study</title>
+    <link rel="stylesheet" href="styles.css?v=selected-frames-marquee-1" />
+  </head>
+  <body>
+    <a class="skip" href="#project">跳到正文</a>
+    <!-- ==================== 顶部悬浮导航 ==================== -->
+    <header class="glass-nav" id="nav">
+      <a href="index.html" aria-label="返回 Portfolio 首页">THE NEXT JOURNEY</a>
+      <nav>
+        <a href="#project">项目</a><a href="#workflow">流程</a
+        ><a href="#case-01">案例</a><a href="#film">成片</a
+        ><a href="index.html">首页</a>
+      </nav>
+    </header>
+    <main id="top">
+      <!-- ==================== HERO 首屏 ====================
+           修改背景图：第一个 img 的 src
+           修改主标题：h1
+           修改文字和按钮位置：styles.css 的“HERO 精确定位”区域
+      -->
+      <section class="hero dark" data-tone="dark">
+        <img src="assets/hero.jpg" alt="夕阳下停在北岭山路上的黑色轿车" />
+        <div class="shade"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">AIGC ORIGINAL NARRATIVE FILM · 2026</p>
+          <div class="hero-title-group">
+            <h1>下一段旅程</h1>
+            <p class="hero-en">THE NEXT JOURNEY</p>
+          </div>
+          <p class="hero-quote">
+            一辆车会离开一个人的生活，但它不会停止见证人生。
+          </p>
+          <a class="glass-btn" href="#film"
+            ><span class="play-icon">▶</span><span>观看完整影片</span></a
+          >
+        </div>
+      </section>
+
+      <!-- ==================== 01 制作流程 ==================== -->
+      <section class="section workflow-section" id="workflow" data-tone="light">
+        <div class="shell reveal">
+          <header class="kicker"><span>01</span><b>AIGC WORKFLOW</b></header>
+          <div class="heading">
+            <h2>从叙事，<br />到可控影像。</h2>
+            <p>
+              工作流：<br/>从叙事拆解到资产建立，<br />通过关键帧与结构化 Prompt 控制生成，<br />再针对失控变量完成迭代与成片。
+          </div>
+        </div>
+        <div class="workflow-carousel">
+          <button class="workflow-arrow workflow-arrow--prev" id="workflow-prev" type="button" aria-label="向左浏览制作流程">←</button>
+          <nav class="workflow-track" id="workflow-track" aria-label="横向制作流程；点击阶段跳转到对应章节">
+          <a href="#project"
+            ><span>01</span><img src="assets/sunset-car.png" alt="剧情构思" />
+            <h3>项目概览</h3>
+            <small>PROJECT OVERVIEW</small>
+            <p>确立汽车第一视角与三任车主的叙事结构。</p></a
+          >
+          <a href="#narrative"
+            ><span>02</span><img src="assets/frame-01.png" alt="山顶摄影画面" />
+            <h3>叙事结构</h3>
+            <small>NARRATIVE STRUCTURE</small>
+            <p>拆解人生阶段、情绪节点与镜头节奏。</p></a
+          >
+          <a href="#visual"
+            ><span>03</span
+            ><img src="assets/camera-reference.png" alt="相机视觉参考" />
+            <h3>视觉研究</h3>
+            <small>VISUAL RESEARCH</small>
+            <p>研究车辆、年代服装、道具与制造流程。</p></a
+          >
+          <a href="#assets"
+            ><span>04</span
+            ><img src="assets/project.png" alt="黑色轿车标准资产" />
+            <h3>资产建立</h3>
+            <small>ASSET DESIGN</small>
+            <p>建立角色、车辆和场景的统一视觉基准。</p></a
+          >
+          <a href="#case-01"
+            ><span>05</span
+            ><img src="assets/case1-v02.png" alt="汽车顶盖安装关键帧" />
+            <h3>关键帧生成</h3>
+            <small>KEYFRAME GENERATION</small>
+            <p>先在静态画面中解决构图与空间关系。</p></a
+          >
+          <a href="#case-02"
+            ><span>06</span
+            ><img src="assets/case2-start.png" alt="赶公交镜头起始关键帧" />
+            <h3>提示词设计</h3>
+            <small>PROMPT DESIGN</small>
+            <p>把复杂镜头拆解为相互独立的控制变量。</p></a
+          >
+          <a href="#case-02"
+            ><span>07</span><img src="assets/frame-05.png" alt="雨夜驾驶画面" />
+            <h3>图生视频</h3>
+            <small>IMAGE TO VIDEO</small>
+            <p>用稳定首帧约束动作、镜头与环境变化。</p></a
+          >
+          <a href="#iteration"
+            ><span>08</span
+            ><img
+              src="assets/女孩眯眼.jpg"
+              alt="修正后的道路尾帧"
+            />
+            <h3>生成迭代</h3>
+            <small>ITERATION</small>
+            <p>识别失控自由度，再增加约束或简化目标。</p></a
+          >
+          <a href="#film"
+            ><span>09</span
+            ><img src="assets/S9.png" alt="雨后医院外的家庭镜头" />
+            <h3>后期与成片</h3>
+            <small>EDITING &amp; FINAL FILM</small>
+            <p>完成镜头筛选、节奏、声音与最终输出。</p></a
+          >
+          </nav>
+          <button class="workflow-arrow workflow-arrow--next" id="workflow-next" type="button" aria-label="向右浏览制作流程">→</button>
+        </div>
+      </section>
+
+      <!-- ==================== 02 项目概览 ==================== -->
+      <section class="section" id="project" data-tone="light">
+        <div class="shell reveal">
+          <header class="kicker"><span>02</span><b>PROJECT OVERVIEW</b></header>
+          <div class="overview">
+            <div>
+              <h2>一辆车，<br />见证三段人生。</h2>
+              <p class="lead">
+                《下一段旅程》是一部以汽车第一视角展开的 AIGC
+                原创叙事短片。故事围绕同一辆汽车与三任车主的相遇与离开展开，通过旅行、工作、家庭与成长，让汽车作为沉默的见证者串联三段人生轨迹。
+
+                <br />项目从创意构思、剧本与分镜设计，到角色与车辆资产建立、AI
+                图像及视频生成、镜头迭代与后期剪辑均由个人独立完成。制作重点落在角色与物体一致性、复杂空间关系、结构化提示词设计，以及生成结果的问题诊断与迭代控制
+              </p>
+            </div>
+            <dl>
+              <div>
+                <dt>项目类型</dt>
+                <dd>AIGC原创叙事短片</dd>
+              </div>
+              <div>
+                <dt>项目时间</dt>
+                <dd>2026.9</dd>
+              </div>
+              <div>
+                <dt>最终产出</dt>
+                <dd>3 min/ 82 镜细化分镜 / 1920×1080 / 24fps</dd>
+              </div>
+              <div>
+                <dt>负责内容</dt>
+                <dd>
+                  创意策划 / 剧本 / 分镜 / 视觉资产 / 提示词设计 /<br />
+                  AI 影像生成 / 镜头迭代 / 后期剪辑
+                </dd>
+              </div>
+              <div>
+                <dt>工具</dt>
+                <dd>ChatGPT / 即梦 / 剪映 / Photoshop</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <figure class="overview-img reveal">
+          <img src="assets/frame-02.png" alt="黑色轿车在城市夜路中行驶" />
+        </figure>
+      </section>
+
+      <!-- ==================== 03 叙事结构：章节标题 ==================== -->
+      <div class="section narrative-intro" id="narrative" data-tone="light">
+        <div class="shell reveal">
+          <header class="kicker">
+            <span>03</span><b>NARRATIVE STRUCTURE</b>
+          </header>
+        </div>
+      </div>
+
+      <!-- 叙事结构从这张北岭图片正式开始。 -->
+      <section class="concept dark" data-tone="dark">
+        <img src="assets/sunset-car.png" alt="北岭夕阳、山路与汽车" />
+        <div class="shade"></div>
+        <div class="shell reveal">
+          <p class="eyebrow">THE CAR AS WITNESS</p>
+          <h2>叙事结构：让汽车成为见证者。</h2>
+          <p>
+            故事没有把汽车作为单纯的交通工具，而是让它持续经历不同的人，见证他们离开、相遇与重新出发。
+          </p>
+        </div>
+      </section>
+
+      <!-- 叙事结构下半部分：三段人物故事。 -->
+      <section class="section narrative" data-tone="light">
+        <div class="shell reveal">
+          <div class="chapters">
+            <article>
+              <img src="assets/C1.png" alt="第一任车主人物画面" /><span
+                >01 · FIRST OWNER</span
+              >
+              <h3>出发</h3>
+              <p>
+                她工作、攒钱，买下人生第一辆车。汽车陪她开始旅行、摄影和看更远的世界。后来她得到了很好的机会，决定离开，汽车进入下一段旅程。
+              </p>
+            </article>
+            <article>
+              <img src="assets/C2.png" alt="第二任车主人物画面" /><span
+                >02 · SECOND OWNER</span
+              >
+              <h3>扎根</h3>
+              <p>
+                汽车成为他在城市生活中的第一个“根基”。从迷茫到工作安稳、爱情幸福、家庭美满，汽车陪伴他走过一段真实的人生旅程。
+              </p>
+            </article>
+            <article>
+              <img src="assets/C3.png" alt="下一代女儿人物画面" /><span
+                >03 · NEXT GENERATION</span
+              >
+              <h3>继续前行</h3>
+              <p>
+                多年以后，父亲把汽车交给已经长大的女儿。她带着自己的迷茫重新出发，寻找自己的方向。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 04 视觉开发切换区 ====================
+           四组图片内容在 script.js 的 cases 数组修改。
+      -->
+      <section class="section" id="visual" data-tone="light">
+        <div class="shell reveal">
+          <header class="kicker">
+            <span>04</span><b>VISUAL RESEARCH</b>
+          </header>
+          <div class="heading">
+            <h2>从现实参照，<br />建立视觉系统</h2>
+            <p>根据真实年代物品，服饰，行为习惯，构建真实资产，保证影片真实性。</p>
+          </div>
+          <div class="tabs" role="tablist">
+            <button aria-selected="true">01 车辆</button
+            ><button>02 服装</button><button>03 道具</button
+            ><button>04 生产工厂</button>
+          </div>
+          <div class="visual-display">
+            <!-- A1 / A2：保留原来的三阶段横向结构 -->
+            <div class="visual-stage visual-stage--three" id="visual-three">
+              <figure>
+                <b>REFERENCE</b
+                ><img id="v-ref" src="assets/A11.jpg" alt="车辆现实参考" />
+              </figure>
+              <i>→</i>
+              <figure>
+                <b>ASSET</b
+                ><img id="v-asset" src="assets/A12.jpg" alt="车辆视觉资产" />
+              </figure>
+              <i>→</i>
+              <figure>
+                <b>FINAL</b
+                ><img id="v-final" src="assets/A13.png" alt="车辆最终影片镜头" />
+              </figure>
+            </div>
+
+            <!-- A3 / A4：每部分包含两组 Reference → Final -->
+            <div class="visual-stage visual-stage--pairs" id="visual-pairs" hidden>
+              <div class="visual-pair">
+                <figure>
+                  <b>REFERENCE 01</b><img id="v-pair-1-ref" alt="第一组参考图" />
+                </figure>
+                <i>→</i>
+                <figure>
+                  <b>FINAL 01</b><img id="v-pair-1-final" alt="第一组最终镜头" />
+                </figure>
+              </div>
+              <div class="visual-pair">
+                <figure>
+                  <b>REFERENCE 02</b><img id="v-pair-2-ref" alt="第二组参考图" />
+                </figure>
+                <i>→</i>
+                <figure>
+                  <b>FINAL 02</b><img id="v-pair-2-final" alt="第二组最终镜头" />
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="controls">
+            <button id="prev">← PREV</button><span id="count">01 / 04</span
+            ><button id="next">NEXT →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 05 角色年龄一致性 ==================== -->
+      <section class="section" id="assets" data-tone="light">
+        <div class="shell reveal">
+          <header class="kicker">
+            <span>05</span><b>CHARACTER CONSISTENCY</b>
+          </header>
+          <h2 class="ages">人物资产一致性控制</h2>
+          <p>同一角色，不同年龄，保持身份连续性。</p>
+        </div>
+        <div class="age-strip reveal">
+          <figure>
+            <img src="assets/age-03.png" alt="3岁角色资产" /><b>3岁</b>
+          </figure>
+          <figure>
+            <img src="assets/age-07.png" alt="7岁角色资产" /><b>7岁</b>
+          </figure>
+          <figure>
+            <img src="assets/age-14.png" alt="14岁角色资产" /><b>14岁</b>
+          </figure>
+          <figure>
+            <img src="assets/age-22.png" alt="22岁角色资产" /><b>22岁</b>
+          </figure>
+        </div>
+        <div class="shell relation reveal">
+          <div>
+            <img src="assets/age-03.png" alt="3岁角色标准资产" /><img
+              src="assets/1.png"
+              alt="角色最终影片镜头"
+            />
+            <p>
+              通过年龄资产先锁定身份特征，再把角色放入不同年代、服装、表演与镜头环境中。
+            </p>
+          </div>
+          <aside>
+            <img src="assets/S7岁.png" alt="标准车辆资产" /><img
+              src="assets/S14岁.png"
+              alt="城市夜间车辆"
+            /><img src="assets/S22岁_1.jpg" alt="山路车辆" /><img
+              src="assets/C3.png"
+              alt="雨景车内"
+            />
+          </aside>
+        </div>
+      </section>
+
+      <!-- ==================== 06 CASE 01 空间关系控制 ==================== -->
+      <section class="section dark" id="case-01" data-tone="dark">
+        <div class="shell reveal">
+          <header class="kicker"><span>06</span><b>CASE STUDY 01</b></header>
+          <div class="case-head case-head--spatial">
+            <div>
+              <h2>精确空间<br />关系控制</h2>
+              <p>SPATIAL RELATIONSHIP CONTROL</p>
+            </div>
+            <blockquote>
+              如何让车顶盖板准确落入车身，<br />而不是只做到“看起来在下降”？
+            </blockquote>
+          </div>
+          <div class="before">
+            <figure>
+              <b>INITIAL KEYFRAME</b
+              ><img src="assets/case1.png" alt="初始关键帧" />
+            </figure>
+            <figure>
+              <b>BEFORE VIDEO</b
+              ><video
+                controls
+                playsinline
+                preload="metadata"
+                poster="assets/case1-v01.png"
+              >
+                <source src="assets/case1-before.mp4" />
+              </video>
+            </figure>
+          </div>
+          <div class="tags">
+            <span>尺寸不匹配</span><span>曲线不匹配</span><span>落点偏差</span>
+          </div>
+          <div class="methods">
+            <article>
+              <span>01</span>
+              <h3>先修关键帧</h3>
+              <b>KEYFRAME FIRST</b>
+              <p>先让顶盖的长度、宽度、曲线与车身开口建立准确对应。</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>降低动作自由度</h3>
+              <b>REDUCE MOTION VARIABLES</b>
+              <p>把视频任务收窄为保持水平的短距离垂直下降。</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>锁定摄影机与主体</h3>
+              <b>LOCK CAMERA &amp; SUBJECT</b>
+              <p>锁定机位、透视、车身、吊具、吸盘与工厂背景。</p>
+            </article>
+          </div>
+          <div class="compare">
+            <figure>
+              <b>ERROR</b><img src="assets/case1-v01.png" alt="修正前" />
+            </figure>
+            <div>
+              →<small>用ChatGPT图像功能控制关键帧<br />固定空间关系</small>
+            </div>
+            <figure>
+              <b>CONTROLLED KEYFRAME</b
+              ><img src="assets/case1-v02.png" alt="修正后" />
+            </figure>
+          </div>
+          <figure class="final-video">
+            <b>FINAL VIDEO</b
+            ><video
+              controls
+              playsinline
+              preload="metadata"
+              poster="assets/case1-v02.png"
+            >
+              <source src="assets/case1-after.mp4" />
+            </video>
+          </figure>
+          <p class="statement">
+            先解决关键帧中的空间关系，<br />再控制视频中的运动。
+          </p>
+        </div>
+      </section>
+
+      <!-- ==================== 07 CASE 02 完整 Prompt ==================== -->
+      <section class="section" id="case-02" data-tone="light">
+        <div class="shell reveal">
+          <header class="kicker">
+            <span>07</span><b>PROMPT ARCHITECTURE</b>
+          </header>
+          <div class="case-head case-head--prompt light">
+            <div>
+              <h2>结构化<br />提示词设计</h2>
+              <p>STRUCTURED PROMPT DESIGN</p>
+            </div>
+            <blockquote>
+              “一个女孩跑向公交车的镜头，<br />实际需要同时控制多少变量？”
+            </blockquote>
+          </div>
+          <div class="prompt-assets">
+            <figure>
+              <img src="assets/case2.jpg" alt="Case 02 人物设定资产" /><b
+                >CHARACTER REFERENCE</b
+              >
+            </figure>
+            <figure>
+              <img src="assets/case2-start.png" alt="公交场景起始帧" /><b
+                >START FRAME</b
+              >
+            </figure>
+          </div>
+          <p class="statement">
+            复杂 Prompt 的重点不是<br />写得更长，<br />而是减少歧义。
+          </p>
+          <header class="anatomy-head">
+            <b>PROMPT ANATOMY</b>
+            <h2>把一个镜头，<br />拆成可控制的变量。</h2>
+          </header>
+          <div class="prompt-doc">
+            <article>
+              <i>06</i>
+              <p>1998年清晨的中国城市街道，真人电影实拍质感。</p>
+              <aside>
+                <b>ENVIRONMENT · 环境</b><span>锁定世界、年代与整体质感。</span>
+              </aside>
+            </article>
+            <article>
+              <i>02</i>
+              <p>
+                女孩沿着人行道向前方公交车和公交站快步小跑，试图赶上即将驶离的公交车。
+              </p>
+              <aside>
+                <b>MOTION · 动作</b><span>定义人物正在做什么。</span>
+              </aside>
+            </article>
+            <article>
+              <i>08</i>
+              <p>女孩始终在人行道上奔跑，不进入机动车道，不跨越路沿石。</p>
+              <aside>
+                <b>CONSTRAINTS · 限制</b><span>限定人物不能进入的区域。</span>
+              </aside>
+            </article>
+            <article>
+              <i>01</i>
+              <p>
+                她穿着白色短袖衬衫、深灰色及膝铅笔裙、黑色尖头高跟鞋，披着自然顺直的黑色长发，肩上背着黑色通勤包。严格保持人物长相、五官、发型、服饰和身体比例不变。
+              </p>
+              <aside>
+                <b>SUBJECT · 主体</b><span>锁定人物是谁，避免身份漂移。</span>
+              </aside>
+            </article>
+            <article>
+              <i>05</i>
+              <p>
+                女孩采用穿着高跟鞋和铅笔裙时真实、克制的小步快跑。步幅较小，脚步轻而快速，身体基本保持直立，只略微向前倾。膝盖自然弯曲，鞋跟和前脚掌依次接触人行道，脚踝保持稳定，不做运动员式冲刺或大幅跳跃。
+              </p>
+              <aside>
+                <b>PHYSICS · 物理</b
+                ><span>让步态与服装、鞋履符合物理关系。</span>
+              </aside>
+            </article>
+            <article>
+              <i>04</i>
+              <p>
+                她一边小跑，一边看着前方公交车司机。抬起的右手保持在肩部附近，手肘自然弯曲，掌心朝向司机，礼貌而急切地示意“请等一下”。右手只做一至两次轻微、克制的招手动作，不要用力挥舞。左手自然握住肩包带，防止通勤包随着奔跑大幅晃动。
+              </p>
+              <aside>
+                <b>PERFORMANCE · 表演</b><span>控制表演强度，避免夸张。</span>
+              </aside>
+            </article>
+            <article>
+              <i>03</i>
+              <p>
+                女孩沿着人行道的清晰通道向公交站方向移动，绕开中央树木，从树木后方通过。她逐渐接近公交站，但在镜头结束前暂时不登车。
+              </p>
+              <aside><b>PATH · 路径</b><span>明确从哪里到哪里。</span></aside>
+            </article>
+            <article>
+              <i>05</i>
+              <p>
+                黑色长发随着小步奔跑轻微向后摆动，白色衬衫和裙摆产生克制、真实的布料变化，肩包只做小幅度的上下晃动。女孩表情有一点着急和轻微喘息，但仍保持自然、优雅和克制，不狼狈，不夸张。
+              </p>
+              <aside>
+                <b>PHYSICS + PERFORMANCE</b><span>约束衣料、包袋和情绪。</span>
+              </aside>
+            </article>
+            <article>
+              <i>06</i>
+              <p>
+                公交车保持1998年前后的方正车身、蓝白配色和机械质感。公交车缓慢减速并在站点附近停住，司机注意到女孩的手势，车辆不要立即驶离。车轮只产生轻微缓慢运动，车身有自然的发动机振动。站牌、自行车、路人和商铺保持稳定。
+              </p>
+              <aside>
+                <b>ENVIRONMENT · 环境</b><span>固定车辆年代与街道元素。</span>
+              </aside>
+            </article>
+            <article>
+              <i>07</i>
+              <p>
+                镜头以固定的电影机位拍摄，但不要明显推近、变焦或改变视角。保持清晨淡金色阳光、树影、轻微晨雾、街道景深和1998年城市环境稳定。真实亚洲女性皮肤，真实头发和衣料细节，轻微自然运动模糊，克制的电影色彩，像真人演员在真实街道拍摄。
+              </p>
+              <aside>
+                <b>CAMERA · 摄影机</b><span>摄影机也是生成变量。</span>
+              </aside>
+            </article>
+            <article>
+              <i>08</i>
+              <p>
+                音频只保留清晨街道环境声、高跟鞋快速落在人行道上的脚步声、轻微呼吸声、衣物与肩包摩擦声、自行车经过声和公交车发动机怠速声。不要背景音乐，不要BGM，不要对白。禁止背景音乐，禁止BGM，禁止对白，禁止喊叫和口型变化。
+              </p>
+              <aside>
+                <b>CONSTRAINTS · 声音</b><span>排除音乐、对白与口型变化。</span>
+              </aside>
+            </article>
+            <article>
+              <i>08</i>
+              <p>
+                禁止女孩跑进机动车道，禁止跨越路沿石，禁止跑到公交车正前方，禁止被车辆撞到；禁止人物被树干、站牌、自行车或行人遮挡；禁止人物突然消失、穿过树木或瞬移。
+              </p>
+              <aside>
+                <b>CONSTRAINTS · 路径</b><span>明确模型不能做什么。</span>
+              </aside>
+            </article>
+            <article>
+              <i>08</i>
+              <p>
+                禁止大步冲刺、跳跃、双脚长时间离地、身体剧烈前倾、夸张摆臂和高举双手；禁止狼狈奔跑、摔倒、崴脚和鞋子脱落；禁止裙摆大幅飞起，禁止肩包疯狂甩动。
+              </p>
+              <aside>
+                <b>CONSTRAINTS · 动作</b><span>排除错误动作方式。</span>
+              </aside>
+            </article>
+            <article>
+              <i>08</i>
+              <p>
+                禁止改变人物长相、五官、年龄、肤色、发型和服饰；禁止白衬衫变色、裙子变短、出现裤装或运动鞋；禁止手指增生、手掌变形、手腕扭曲、腿部变形、脚踝异常和高跟鞋融化。
+              </p>
+              <aside>
+                <b>CONSTRAINTS · 身份</b><span>控制一致性与肢体错误。</span>
+              </aside>
+            </article>
+            <article>
+              <i>08</i>
+              <p>
+                禁止公交车突然加速、倒车、改变车型或变成现代公交车；禁止出现LED站牌、智能手机、现代汽车和现代广告；禁止改变街道树木以及其他任何畸变，禁止镜头剧烈移动、快速推拉、摇晃、旋转、变焦和切镜；禁止背景变形、树木移动、光线闪烁、字幕和水印。
+              </p>
+              <aside>
+                <b>CONSTRAINTS · 世界</b
+                ><span>锁定车辆、年代、环境与镜头。</span>
+              </aside>
+            </article>
+          </div>
+          <figure class="prompt-video">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="assets/case2-start.png"
+            >
+              <source src="assets/case2-final.mp4" />
+            </video>
+            <figcaption>
+              最终生成基本完成了角色身份、跑步动作、招手表演与年代环境的组合控制。
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ==================== 08 三组 Before / After 迭代 ==================== -->
+      <section class="section" id="iteration" data-tone="light">
+        <div class="shell reveal">
+          <header class="kicker"><span>08</span><b>ITERATION LAB</b></header>
+          <div class="heading">
+            <h2>从错误里，<br />找到失控变量。</h2>
+            <p>不是告诉 AI “往哪动”，<br />而是告诉它“相对于什么，怎么动”。</p>
+          </div>
+          <div class="iterations">
+            <article>
+              <header>
+                <span>ITERATION 01</span>
+                <h3>构图锁定 / 首帧控制</h3>
+                <b>CONTROL THE FIRST FRAME</b>
+              </header>
+              <div class="video-pair">
+                <figure>
+                  <b>BEFORE</b
+                  ><video controls>
+                    <source src="assets/iteration-01-before.mp4" />
+                  </video>
+                </figure>
+                <i>→<small>强化首帧约束</small></i>
+                <figure>
+                  <b>AFTER</b
+                  ><video controls>
+                    <source src="assets/iteration-01-after.mp4" />
+                  </video>
+                </figure>
+              </div>
+              <dl>
+                <div>
+                  <dt>问题</dt>
+                  <dd>
+                    首帧被生视频模型重新构图，导致已经确定的主体位置和空间关系发生变化。
+                  </dd>
+                </div>
+                <div>
+                  <dt>修改</dt>
+                  <dd>
+                    将生成画面重新作为稳定首帧，提示词严格控制，锁定机位、边界与主体位置，减少模型重新解释构图的空间。
+                  </dd>
+                </div>
+                <div>
+                  <dt>结果</dt>
+                  <dd>构图稳定，后续运动建立在确定的首帧关系之上。</dd>
+                </div>
+              </dl>
+            </article>
+            <article>
+              <header>
+                <span>ITERATION 02</span>
+                <h3>过渡逻辑 / 修改尾帧</h3>
+                <b>SIMPLIFY THE END FRAME</b>
+              </header>
+              <div class="video-pair">
+                <figure>
+                  <b>BEFORE</b
+                  ><video controls>
+                    <source src="assets/iteration-02-before.mp4" />
+                  </video>
+                </figure>
+                <i>→<small>简化尾帧条件</small></i>
+                <figure>
+                  <b>AFTER</b
+                  ><video controls>
+                    <source src="assets/iteration-02-after.mp4" />
+                  </video>
+                </figure>
+              </div>
+              <dl>
+                <div>
+                  <dt>问题</dt>
+                  <dd>
+                    原尾帧包含过多空间变化，模型需要同时解决主体运动、环境变化与画面衔接，生成视频有严重bug。
+                  </dd>
+                </div>
+                <div>
+                  <dt>修改</dt>
+                  <dd>
+                    重新设计尾帧，移除不必要的前景层级，让首尾帧之间的视觉关系更加直接，让画面运动更有逻辑。
+                  </dd>
+                </div>
+                <div>
+                  <dt>结果</dt>
+                  <dd>模型需要解决的问题减少，过渡路径因此更加稳定。</dd>
+                </div>
+              </dl>
+            </article>
+            <article>
+              <header>
+                <span>ITERATION 03</span>
+                <h3>方向控制 / 修改 Prompt 描述</h3>
+                <b>BUILD A REFERENCE SYSTEM</b>
+              </header>
+              <div class="video-pair">
+                <figure>
+                  <b>BEFORE</b
+                  ><video controls>
+                    <source src="assets/iteration-03-before.mp4" />
+                  </video>
+                </figure>
+                <i>→<small>PROMPT REVISION</small></i>
+                <figure>
+                  <b>AFTER</b
+                  ><video controls>
+                    <source src="assets/iteration-03-after.mp4" />
+                  </video>
+                </figure>
+              </div>
+              <div class="revision">
+                <article>
+                  <b>BEFORE PROMPT</b>
+                  <p>
+                    以图1车内遮阳板画面为首帧，以图2女生定妆照作为人物造型参考。生成4秒、16:9、写实电影感视频。镜头完全固定，无推拉、无摇移、无缩放、无抖动。保持图1中的车顶、遮阳板、转轴、固定卡扣、照片及车内结构完全一致，不改变物体位置、材质和比例。画面开始后约0.5秒，女孩的一只纤细手掌从右下方自然伸入。手部肤色、体态和造型参照图2：白皙自然肤色，短而干净的自然色指甲，不漏袖口，不戴首饰手表。只出现一只手、少量手腕，不出现女孩的脸、头发、身体或另一只手。女孩用手指自然托住遮阳板下沿，稍作停顿后，将遮阳板平稳拉回向上推回车顶。遮阳板严格围绕原有顶部转轴旋转，运动速度均匀，符合真实汽车遮阳板的重量感和机械结构。贴在遮阳板上的照片保持牢固，随遮阳板同步翻转，不滑动、不变形、不脱落。遮阳板最终贴合车顶并发出轻柔的卡扣声，女孩松手后从右下方自然退出画面。灯光保持自然、柔和。遮阳板收起后，车内亮度产生轻微且符合现实的变化，不出现突然曝光或色温跳变。音效：只保留安静的车内环境声、手指接触遮阳板的轻微布料摩擦声、转轴转动声，以及遮阳板收起时清晰但克制的卡扣声。不要背景音乐，不要配乐，不要人声。负面提示词：人物露脸、头部入镜、身体入镜、第二只手、整条手臂、大面积人物入镜、多余手指、六指、缺指、手指粘连、手部变形、腕部扭曲、手掌穿模、肤色变化、服装变化、配饰变化、遮阳板弯曲变形、遮阳板错误转轴、遮阳板反向运动、动作倒放、动作反复、照片滑动、照片脱落、照片内容变化、车内结构变化、镜头移动、推镜、拉镜、摇镜、缩放、相机抖动、画面闪烁、物体漂浮、动作跳帧、曝光突变、文字、水印、BGM、背景音乐、配乐。
+                  </p>
+                </article>
+                <article>
+                  <b>AFTER PROMPT</b>
+                  <p>
+                    以图1车内遮阳板画面为首帧，以图2女生定妆照作为人物造型参考。生成4秒、16:9、写实电影感视频。镜头完全固定，无推拉、无摇移、无缩放、无抖动。保持图1中的<span>车顶、遮阳板、转轴、固定卡扣</span>、照片及车内结构完全一致，不改变物体位置、材质和比例。画面开始后约0.5秒，女孩的一只纤细手掌从右下方自然伸入。手部肤色、体态和造型参照图2：白皙自然肤色，短而干净的自然色指甲，不漏袖口，不戴首饰手表。只出现一只手、少量手腕，不出现女孩的脸、头发、身体或另一只手。女孩用手指自然托住遮阳板下沿，稍作停顿后，将遮阳板平稳<span>向镜头一侧向上拉然后推回车顶</span>。遮阳板严格围绕原有顶部转轴旋转，运动速度均匀，符合真实汽车遮阳板的重量感和机械结构。贴在遮阳板上的照片保持牢固，随遮阳板同步翻转，不滑动、不变形、不脱落。遮阳板最终贴合车顶并发出轻柔的卡扣声，女孩松手后从右下方自然退出画面。<span>重点方向是把遮阳板合上，这是向上收拢关闭，不是向挡风玻璃外推开，不是向下放低。手掌、手指、手腕和前臂连接自然，遮阳板始终绕车顶铰链旋转，不发生平移动作。动作完成后保持遮阳板贴紧车顶，不再遮挡前方视线。</span>真实物理运动，结构清晰，方向准确，写实摄影质感。灯光保持自然、柔和。遮阳板收起后，车内亮度产生轻微且符合现实的变化，不出现突然曝光或色温跳变。音效：只保留安静的车内环境声、手指接触遮阳板的轻微布料摩擦声、转轴转动声，以及遮阳板收起时清晰但克制的卡扣声。不要背景音乐，不要配乐，不要人声。负面提示词：<span>禁止遮阳板向外推开，向挡风玻璃外移动，向前方推出，向下转动，向下翻折，越关越开，反向动作，方向颠倒</span>，手部穿模，手臂断裂，遮阳板变形，铰链位置错误，物体悬浮，不自然回弹，夸张运动，卡通质感人物露脸、头部入镜、身体入镜、第二只手、整条手臂、大面积人物入镜、多余手指、六指、缺指、手指粘连、手部变形、腕部扭曲、手掌穿模、肤色变化、服装变化、配饰变化、遮阳板弯曲变形、遮阳板错误转轴、遮阳板反向运动、动作倒放、动作反复、照片滑动、照片脱落、照片内容变化、车内结构变化、镜头移动、推镜、拉镜、摇镜、缩放、相机抖动、画面闪烁、物体漂浮、动作跳帧、曝光突变、文字、水印、BGM、背景音乐、配乐。
+                  </p>
+                </article>
+              </div>
+              <p class="refs">
+                <span>铰链 = 旋转轴</span><span>车顶 = 最终位置参照</span
+                ><span>挡风玻璃 = 初始方向参照</span
+                ><b>不要只描述“往哪里动”，而要建立明确的空间参照系。</b>
+              </p>
+              <dl>
+                <div>
+                  <dt>问题</dt>
+                  <dd>“关闭遮阳板”没有定义旋转轴、方向与最终位置。</dd>
+                </div>
+                <div>
+                  <dt>修改</dt>
+                  <dd>
+                    强化车顶铰链、挡风玻璃、向上收拢与最终贴紧车顶等真实参照关系。
+                  </dd>
+                </div>
+                <div>
+                  <dt>结果</dt>
+                  <dd>
+                    方向歧义被消除，模型能够理解围绕哪个轴、朝哪个方向旋转。
+                  </dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+          <blockquote class="iteration-end">
+            先建立稳定的视觉约束，再进行生成；<br />先定位失控变量，再针对问题迭代。
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- ==================== 09 最终成片与横向画廊 ==================== -->
+      <section class="section dark final-film" id="film" data-tone="dark">
+        <div class="shell reveal">
+          <header class="kicker"><span>09</span><b>FINAL FILM</b></header>
+          <div class="film-head">
+            <h2>下一段旅程</h2>
+            <p>THE NEXT JOURNEY</p>
+            <span>AIGC 原创叙事短片 · 2026</span>
+          </div>
+          <video
+            class="film"
+            controls
+            playsinline
+            preload="metadata"
+            poster="assets/home-covers/next-journey-cover.png"
+          >
+            <source src="assets/final-film.mp4" />
+          </video>
+        </div>
+        <div class="frames reveal">
+          <div class="shell">
+            <b>SELECTED FRAMES</b>
+            <h3>精选画面</h3>
+          </div>
+          <div class="strip-carousel">
+            <button class="strip-arrow strip-arrow--prev" id="strip-prev" type="button" aria-label="向左浏览精选画面">←</button>
+            <div class="strip-viewport">
+              <div class="strip" id="strip" tabindex="0" aria-label="自动滚动的精选画面">
+                <div class="strip-group">
+              <img class="xl" src="assets/frame-01.png" alt="山顶摄影" /><img
+                class="sm"
+                src="assets/frame-03.png"
+                alt="车内人物"
+              /><img class="md" src="assets/frame-04.png" alt="母亲与孩子" /><img
+                class="sm"
+                src="assets/frame-05.png"
+                alt="雨夜驾驶"
+              /><img class="xl" src="assets/frame-06.png" alt="绿色山路" /><img
+                class="md"
+                src="assets/frame-07.png"
+                alt="医院外家庭"
+              /><img class="sm" src="assets/frame-08.png" alt="夕阳车流" /><img
+                class="xl"
+                src="assets/frame-02.png"
+                alt="夜间城市车辆"
+              /><img src="assets/project.png" alt="项目精选画面" /><img
+                src="assets/1.png"
+                alt="影片精选画面"
+              /><img src="assets/A13.png" alt="山路车辆最终画面" /><img
+                src="assets/S2.png"
+                alt="影片场景精选画面"
+              /><img src="assets/S9.png" alt="影片场景精选画面" /><img
+                src="assets/S22岁_2.png"
+                alt="二十二岁角色精选画面"
+              />
+                </div>
+                <div class="strip-group" aria-hidden="true">
+                  <img class="xl" src="assets/frame-01.png" alt="" /><img class="sm" src="assets/frame-03.png" alt="" /><img class="md" src="assets/frame-04.png" alt="" /><img class="sm" src="assets/frame-05.png" alt="" /><img class="xl" src="assets/frame-06.png" alt="" /><img class="md" src="assets/frame-07.png" alt="" /><img class="sm" src="assets/frame-08.png" alt="" /><img class="xl" src="assets/frame-02.png" alt="" /><img src="assets/project.png" alt="" /><img src="assets/1.png" alt="" /><img src="assets/A13.png" alt="" /><img src="assets/S2.png" alt="" /><img src="assets/S9.png" alt="" /><img src="assets/S22岁_2.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <button class="strip-arrow strip-arrow--next" id="strip-next" type="button" aria-label="向右浏览精选画面">→</button>
+          </div>
+        </div>
+      </section>
+      <!--
+  HTML 快速修改索引：
+  .hero             Hero 首屏
+  #project          项目概览
+  .concept          创意概念全屏图片
+  #narrative        三段人物故事
+  #workflow         制作流程
+  #visual           Reference / Asset / Final 切换区
+  #assets           角色年龄一致性
+  #case-01          空间关系控制案例
+  #case-02          公交车 Prompt 案例
+  #iteration        三组 Before / After 迭代
+  #film             完整成片与横向画廊
+
+  修改文字：直接修改标签中间的中文或英文。
+  更换素材：修改 src="assets/文件名"，并确保新文件已放入 assets 文件夹。
+  <br> 表示在此处主动换行。
+  class 名称用于连接 styles.css，除非同时修改 CSS，否则不要随意更名。
+-->
+    </main>
+    <script src="script.js?v=selected-frames-marquee-1"></script>
+    <script src="strip-carousel.js?v=selected-frames-marquee-1"></script>
+  </body>
+</html>

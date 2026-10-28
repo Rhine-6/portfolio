@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#eee6fa" />
+    <meta name="description" content="Yuhan Li 的个人作品集：视觉叙事、创意编程与交互体验。" />
+    <title>Yuhan Li — Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="portfolio-home.css" />
+  </head>
+  <body class="portfolio-home">
+    <a class="skip" href="#works">跳到精选作品</a>
+    <header class="glass-nav home-nav" id="home-nav">
+      <a class="home-wordmark" href="#top">PORTFOLIO</a>
+      <nav aria-label="首页导航">
+        <a href="#works">WORKS</a>
+        <a href="#about">ABOUT</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="home-hero" aria-labelledby="portfolio-title">
+        <div class="home-signature">
+          <span>Yuhan Li</span>
+          <small>Digital Media &amp; Creative Technology</small>
+        </div>
+
+        <div class="hero-center">
+          <p class="hero-overline">SELECTED WORKS · 2025—2026</p>
+          <h1 id="portfolio-title">Portfolio.</h1>
+          <p class="hero-description">影像创作 · 创意编程 · 交互体验</p>
+          <div class="hero-collage" id="hero-collage" aria-label="代表作品封面"></div>
+        </div>
+        <a class="hero-scroll" href="#works"><span>SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="home-works" id="works" aria-labelledby="works-title">
+        <div class="home-shell">
+          <header class="works-heading">
+            <div>
+              <p class="section-overline">A SELECTION · 01—05</p>
+              <h2 id="works-title">My Works</h2>
+            </div>
+            <p>精选作品</p>
+          </header>
+          <div class="works-grid" id="works-grid"></div>
+        </div>
+      </section>
+
+      <section class="home-about" id="about" aria-labelledby="about-title">
+        <div class="home-shell about-layout">
+          <header>
+            <h2 id="about-title">About Me.</h2>
+            <div class="about-contact" id="about-contact">
+              <p class="contact-label">GET IN TOUCH</p>
+              <p class="contact-email">Email: <a href="mailto:1014662119@qq.com">1014662119@qq.com</a></p>
+              <p class="about-en">Curious about what comes next.</p>
+            </div>
+          </header>
+          <div class="about-copy">
+            <div class="about-intro">
+              <p>你好，我是李宇涵，来自中国传媒大学数字媒体技术专业。</p>
+              <p>我的创作横跨数字影像、AIGC 与交互开发。我喜欢将想法转化为可以被看见、被体验的作品，也享受从概念构思到最终实现的过程。</p>
+              <p>对我而言，技术不只是实现创意的工具，也是探索新表达方式的可能。我希望持续尝试影像、游戏与生成式技术的结合，创造兼具视觉表达与交互体验的作品。</p>
+            </div>
+            <p class="about-directions">影像创作 <span>/</span> AIGC <span>/</span> 游戏与交互开发</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="home-footer">
+      <span>Yuhan Li</span>
+      <a href="#top" aria-label="回到页面顶部">回到顶部 ↑</a>
+    </footer>
+
+    <dialog class="work-dialog" id="hongwu-dialog" aria-labelledby="hongwu-title">
+      <div class="dialog-surface">
+        <button class="glass-btn dialog-close" type="button" data-close-dialog aria-label="关闭项目介绍">×</button>
+        <p class="dialog-category">AIGC VISUAL PRODUCTION</p>
+        <h2 id="hongwu-title">混在洪武当咸鱼</h2>
+        <div class="dialog-copy">
+          <p>参与小说《混在洪武当咸鱼》的 AIGC 短剧改编项目，负责部分剧情策划与角色视觉资产设计。通过 GPT、即梦及 Photoshop 进行角色形象生成与多轮迭代，重点优化人物真实质感、视觉风格及角色一致性。</p>
+          <p>项目中，两套个人设计的角色定妆方案经团队评审后被最终采用，同时参与首集样片评审与叙事优化，积累了 AIGC 影视内容开发及团队协作经验。</p>
+        </div>
+        <p class="dialog-disclaimer">项目内容暂不公开展示。</p>
+      </div>
+    </dialog>
+
+    <script src="portfolio-home.js" defer></script>
+  </body>
+</html>

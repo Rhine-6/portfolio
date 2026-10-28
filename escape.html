@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#10100f" />
+    <meta
+      name="description"
+      content="Escape：基于 Unity 开发的第一人称密室逃脱游戏，呈现游戏机制、开发迭代与完整实机演示。"
+    />
+    <title>ESCAPE｜Unity 第一人称密室逃脱</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="escape.css" />
+  </head>
+  <body class="escape-page">
+    <a class="skip" href="#intro">跳到正文</a>
+    <header class="glass-nav escape-nav" id="nav">
+      <a class="escape-brand" href="index.html" aria-label="返回 Portfolio 首页">ESCAPE</a>
+      <nav aria-label="页面导航">
+        <a href="#intro" aria-current="location">项目</a>
+        <a href="#gameplay">游戏机制</a>
+        <a href="#development">开发与迭代</a>
+        <a href="#result">项目成果</a>
+        <a href="index.html">首页</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="escape-intro" id="intro" data-tone="dark" aria-labelledby="intro-title">
+        <div class="escape-hero">
+          <img
+            src="assets/escape/room-overview.png"
+            alt="Escape 游戏内客厅与厨房全景"
+            fetchpriority="high"
+          />
+          <div class="escape-shade"></div>
+          <div class="escape-hero-copy shell">
+            <p class="eyebrow">01 — ESCAPE</p>
+            <h1 id="intro-title">ESCAPE</h1>
+            <h2>第一人称密室逃脱游戏</h2>
+            <p class="escape-lead">
+              基于 Unity 开发的 3D 密室逃脱游戏。玩家通过探索场景、收集碎片、触发线索与破解密码，逐步完成逃脱。
+            </p>
+            <a class="glass-btn escape-cta" href="#full-demo">
+              <span>查看完整视频</span><span aria-hidden="true">↓</span>
+            </a>
+            <dl class="escape-meta" aria-label="项目信息">
+              <div><dt>开发引擎</dt><dd>Unity</dd></div>
+              <div><dt>项目类型</dt><dd>3D 解谜游戏</dd></div>
+              <div><dt>开发方式</dt><dd>AI 辅助开发</dd></div>
+              <div><dt>开发时间</dt><dd>2026 年 7 月</dd></div>
+            </dl>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="escape-section escape-gameplay" id="gameplay" data-tone="dark" aria-labelledby="gameplay-title">
+        <div class="shell">
+          <header class="escape-heading">
+            <p class="kicker"><span>02 — 游戏机制</span></p>
+            <div class="escape-heading-row">
+              <h2 id="gameplay-title">游戏机制</h2>
+              <p>探索、收集、交互与解谜构成游戏的核心流程。</p>
+            </div>
+            <ol class="journey-line" aria-label="游戏流程：探索、收集、解谜、逃脱">
+              <li>探索</li><li>收集</li><li>解谜</li><li>逃脱</li>
+            </ol>
+          </header>
+
+          <div class="gameplay-layout">
+            <div class="clip-viewer">
+              <div class="clip-frame">
+                <video
+                  id="clip-video"
+                  muted
+                  playsinline
+                  preload="none"
+                  poster="assets/escape/collect-poster.png"
+                  aria-label="当前游戏机制演示视频"
+                ></video>
+                <button class="glass-btn clip-play" id="clip-play" type="button" aria-label="播放当前机制片段">
+                  <span aria-hidden="true">▶</span><span>播放片段</span>
+                </button>
+              </div>
+              <div class="clip-controls" aria-label="机制视频控制">
+                <button class="glass-btn glass-btn--quiet" id="clip-toggle" type="button">播放</button>
+                <input id="clip-progress" type="range" min="0" max="1000" value="0" aria-label="视频进度" />
+                <span class="clip-time" id="clip-time">0:00</span>
+                <button class="glass-btn glass-btn--quiet" id="clip-replay" type="button">重播</button>
+                <button class="glass-btn glass-btn--quiet" id="clip-mute" type="button" aria-pressed="true">静音</button>
+              </div>
+            </div>
+
+            <aside class="clip-info">
+              <div class="clip-tabs" role="tablist" aria-label="选择游戏机制视频">
+                <button class="glass-btn clip-tab" id="tab-collect" type="button" role="tab" aria-selected="true" aria-controls="clip-video" data-clip="collect">
+                  <span>01</span><span>碎片收集</span>
+                </button>
+                <button class="glass-btn clip-tab" id="tab-interact" type="button" role="tab" aria-selected="false" aria-controls="clip-video" data-clip="interact" tabindex="-1">
+                  <span>02</span><span>场景交互</span>
+                </button>
+                <button class="glass-btn clip-tab" id="tab-password" type="button" role="tab" aria-selected="false" aria-controls="clip-video" data-clip="password" tabindex="-1">
+                  <span>03</span><span>密码验证</span>
+                </button>
+                <button class="glass-btn clip-tab" id="tab-escape" type="button" role="tab" aria-selected="false" aria-controls="clip-video" data-clip="escape" tabindex="-1">
+                  <span>04</span><span>最终逃脱</span>
+                </button>
+              </div>
+              <div class="clip-caption" aria-live="polite">
+                <p class="clip-duration" id="clip-duration">25 秒 · 1920 × 1080</p>
+                <h3 id="clip-title">碎片收集</h3>
+                <p id="clip-description">
+                  探索房间并拾取散落的碎片，通过收集进度推动后续谜题。
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="escape-section escape-development" id="development" data-tone="dark" aria-labelledby="development-title">
+        <div class="shell">
+          <header class="escape-heading">
+            <p class="kicker"><span>03 — 开发与迭代</span></p>
+            <div class="escape-heading-row">
+              <h2 id="development-title">开发与迭代</h2>
+              <p>通过 AI 辅助实现、Unity 实机测试与多轮反馈，逐步完善游戏交互逻辑和运行流程。</p>
+            </div>
+          </header>
+
+          <ul class="tech-tags" aria-label="开发工具">
+            <li>Unity</li><li>C#</li><li>OpenCode</li><li>Unity MCP</li>
+          </ul>
+
+          <div class="case-switcher" role="tablist" aria-label="选择开发案例">
+            <button class="glass-btn case-tab is-selected" id="case-tab-pickup" type="button" role="tab" aria-selected="true" aria-controls="case-pickup">
+              <span>01</span>碎片拾取系统
+            </button>
+            <button class="glass-btn case-tab" id="case-tab-menu" type="button" role="tab" aria-selected="false" aria-controls="case-menu" tabindex="-1">
+              <span>02</span>主菜单交互系统
+            </button>
+          </div>
+
+          <article class="case-panel" id="case-pickup" role="tabpanel" aria-labelledby="case-tab-pickup">
+            <div class="case-layout">
+              <div class="case-story">
+                <p class="case-index">案例 01 · 碎片拾取系统</p>
+                <h3>距离检测与拾取反馈</h3>
+                <p class="case-intro">碎片需要在近距离按 E 交互，随后移动到配置的目标位置并更新收集数量。</p>
+                <ol class="iteration-steps">
+                  <li><span>01</span><div><b>交互异常</b><p>开发记录称，按 E 没有产生预期拾取反馈。</p></div></li>
+                  <li><span>02</span><div><b>测试与调整</b><p>记录提到交互距离与角度经过多轮调整；具体参数和旧版代码未留存。</p></div></li>
+                  <li><span>03</span><div><b>当前实现</b><p>当前脚本按相机与物体的距离判断，按 E 后立即计数并启动目标位移。</p></div></li>
+                </ol>
+                <p class="case-caveat">源码没有朝向角度筛选或多个目标互斥；多个近距离碎片可能响应同一次 E 输入。</p>
+                <ul class="case-tags" aria-label="碎片拾取技术点">
+                  <li>E 键交互</li><li>距离检测</li><li>Target 位移</li><li>收集计数</li>
+                </ul>
+                <div class="case-inline-media">
+                  <video class="case-inline-video" playsinline preload="none" poster="assets/escape/collect-poster.png" aria-label="碎片拾取系统实机演示">
+                    <source src="assets/escape/1-1.mp4" type="video/mp4" />
+                    当前浏览器无法播放此视频。
+                  </video>
+                  <div class="case-video-controls" aria-label="碎片拾取视频控制">
+                    <button class="glass-btn glass-btn--quiet" type="button" data-video-toggle>播放</button>
+                    <input type="range" min="0" max="1000" value="0" aria-label="碎片拾取视频进度" data-video-progress />
+                    <span class="case-video-time" data-video-time>0:00</span>
+                    <button class="glass-btn glass-btn--quiet" type="button" data-video-replay>重播</button>
+                  </div>
+                  <p class="case-video-caption">1-1 · 碎片拾取实机效果</p>
+                </div>
+              </div>
+
+              <div class="case-evidence">
+                <div class="code-samples">
+                  <section class="code-sample">
+                    <div class="code-heading"><span>Interactable.cs</span><span>距离与提示</span></div>
+                    <pre><code class="csharp-code">Camera cam = Camera.main;
+if (cam == null) return;
+
+float distance = Vector3.Distance(cam.transform.position, transform.position);
+bool near = distance &lt;= interactDistance;
+
+// 显示/隐藏提示
+if (near != isPlayerNear)
+{
+    isPlayerNear = near;
+    if (PiecePickupUI.Instance != null)
+        PiecePickupUI.Instance.ShowInteractPrompt(near);
+}</code></pre>
+                  </section>
+                  <section class="code-sample">
+                    <div class="code-heading"><span>Interactable.cs</span><span>E 键拾取</span></div>
+                    <pre><code class="csharp-code">if (Input.GetKeyDown(KeyCode.E) &amp;&amp; isPlayerNear)
+{
+    Debug.Log("按E移动: " + gameObject.name);
+    isMoving = true;
+    if (PiecePickupUI.Instance != null)
+        PiecePickupUI.Instance.AddPiece();
+    if (AudioManager.Instance != null)
+        AudioManager.Instance.PlayPickup();
+}</code></pre>
+                  </section>
+                  <section class="code-sample">
+                    <div class="code-heading"><span>Interactable.cs</span><span>移向 Target</span></div>
+                    <pre><code class="csharp-code">if (target != null)
+{
+    transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+    if (Vector3.Distance(transform.position, target.position) &lt; 0.01f)
+    {
+        transform.position = target.position;
+        isMoving = false;
+        enabled = false;
+        Debug.Log("到位: " + gameObject.name);
+    }
+}</code></pre>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-panel" id="case-menu" role="tabpanel" aria-labelledby="case-tab-menu" hidden>
+            <div class="case-layout">
+              <div class="case-story">
+                <p class="case-index">案例 02 · 主菜单交互系统</p>
+                <h3>按钮事件与启动时序</h3>
+                <p class="case-intro">从主菜单进入游戏后，关闭菜单、启用过渡并显示操作提示。</p>
+                <ol class="iteration-steps">
+                  <li><span>01</span><div><b>按钮失效</b><p>开发记录称，开始按钮点击后没有响应。</p></div></li>
+                  <li><span>02</span><div><b>测试与调整</b><p>记录只说明经过多轮修改后成功，没有指出 FadePanel 遮挡是否为原因。</p></div></li>
+                  <li><span>03</span><div><b>当前实现</b><p>MainMenu 回调触发启动标记；GameInit 在标记置位后才执行主要场景初始化。</p></div></li>
+                </ol>
+                <p class="case-caveat">GameInit.Start() 仍会在场景载入时运行；初始 FadePanel 状态与遮挡关系需场景配置才能确认。</p>
+                <ul class="case-tags" aria-label="主菜单技术点">
+                  <li>按钮事件</li><li>UI 状态</li><li>启动门控</li>
+                </ul>
+                <div class="case-inline-media">
+                  <video class="case-inline-video" playsinline preload="none" poster="assets/escape/main-menu.png" aria-label="主菜单交互系统实机演示">
+                    <source src="assets/escape/5-1.mp4" type="video/mp4" />
+                    当前浏览器无法播放此视频。
+                  </video>
+                  <div class="case-video-controls" aria-label="主菜单交互视频控制">
+                    <button class="glass-btn glass-btn--quiet" type="button" data-video-toggle>播放</button>
+                    <input type="range" min="0" max="1000" value="0" aria-label="主菜单交互视频进度" data-video-progress />
+                    <span class="case-video-time" data-video-time>0:00</span>
+                    <button class="glass-btn glass-btn--quiet" type="button" data-video-replay>重播</button>
+                  </div>
+                  <p class="case-video-caption">5-1 · 主菜单启动实机效果</p>
+                </div>
+              </div>
+
+              <div class="case-evidence">
+                <div class="code-samples">
+                  <section class="code-sample">
+                    <div class="code-heading"><span>MainMenu.cs</span><span>按钮监听</span></div>
+                    <pre><code class="csharp-code">Cursor.lockState = CursorLockMode.None;
+Cursor.visible = true;
+Time.timeScale = 1f;
+
+if (startButton != null) startButton.onClick.AddListener(OnStartGame);
+if (helpButton != null) helpButton.onClick.AddListener(OnShowHelp);
+if (quitButton != null) quitButton.onClick.AddListener(OnQuitGame);
+if (closeButton != null) closeButton.onClick.AddListener(OnHideHelp);</code></pre>
+                  </section>
+                  <section class="code-sample">
+                    <div class="code-heading"><span>MainMenu.cs</span><span>开始游戏回调</span></div>
+                    <pre><code class="csharp-code">void OnStartGame()
+{
+    Debug.Log("点击了开始游戏");
+    gameObject.SetActive(false);
+    foreach (GameObject go in Resources.FindObjectsOfTypeAll&lt;GameObject&gt;())
+    {
+        GameInit init = go.GetComponent&lt;GameInit&gt;();
+        if (init != null)
+        {
+            init.StartGame();
+            break;
+        }
+    }
+}</code></pre>
+                  </section>
+                  <section class="code-sample">
+                    <div class="code-heading"><span>GameInit.cs</span><span>started 门控</span></div>
+                    <pre><code class="csharp-code">if (!started) return;
+
+if (!initialized)
+{
+    fadePanel = FindByName("FadePanel");
+    tipPanel = FindByName("TipPanel");
+
+    if (fadePanel != null &amp;&amp; tipPanel != null)
+    {
+        initialized = true;
+        Init();
+    }
+    return;
+}</code></pre>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="escape-section escape-result" id="result" data-tone="dark" aria-labelledby="result-title">
+        <div class="shell">
+          <header class="escape-heading result-heading">
+            <p class="kicker"><span>04 — 项目成果</span></p>
+            <h2 id="result-title">项目成果</h2>
+          </header>
+          <div class="result-footer">
+            <p>
+              完成了包含第一人称探索、物品收集、场景交互、密码验证与通关反馈的游戏原型，形成了从主菜单到最终逃脱的完整体验流程。
+            </p>
+            <ul class="result-highlights">
+              <li>完整探索与解谜流程</li>
+              <li>多种场景交互机制</li>
+              <li>主菜单与通关反馈</li>
+              <li>AI 辅助开发与调试</li>
+            </ul>
+          </div>
+          <section class="full-demo" id="full-demo" aria-labelledby="full-demo-title">
+            <div class="full-demo-heading">
+              <h3 id="full-demo-title">完整游戏演示</h3>
+              <p>从开始到通关 · 2 分 22 秒</p>
+            </div>
+            <div class="full-demo-frame">
+              <video
+                id="full-demo-video"
+                controls
+                playsinline
+                preload="none"
+                poster="assets/escape/main-menu.png"
+                aria-label="Escape 完整游戏演示视频"
+              >
+                <source src="assets/escape/full-demo.mp4" type="video/mp4" />
+                当前浏览器无法播放此视频。
+              </video>
+              <button class="glass-btn full-demo-play" id="full-demo-play" type="button" aria-label="播放完整游戏演示">
+                <span aria-hidden="true">▶</span><span>播放演示</span>
+              </button>
+            </div>
+          </section>
+          <div class="result-actions">
+            <a class="glass-btn" href="next-journey.html"><span>查看《下一段旅程》</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="escape.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,1538 @@
+/* =========================================================
+   01 全站变量：颜色、内容宽度、动画速度
+   ========================================================= */
+:root {
+  --paper: #efeee9;
+  --ink: #171716;
+  --muted: #74736e;
+  --line: #17171626;
+  --dark: #10100f;
+  --warm: #f4f0e8;
+  --accent: #9b5d42;
+  --shell: min(1180px, calc(100vw - 64px));
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family:
+    Inter, "Helvetica Neue", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+video {
+  display: block;
+  width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+}
+.shell {
+  width: var(--shell);
+  margin: auto;
+}
+.section {
+  padding: clamp(90px, 12vw, 180px) 0;
+  scroll-margin-top: 80px;
+}
+.dark {
+  color: var(--warm);
+  background: var(--dark);
+}
+.skip {
+  position: fixed;
+  top: -5rem;
+}
+.skip:focus {
+  top: 1rem;
+  z-index: 100;
+}
+/* =========================================================
+   02 顶部 Liquid Glass 导航
+   ========================================================= */
+.glass-nav {
+  position: fixed;
+  z-index: 50;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 690px);
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.55rem 0.4rem 1.15rem;
+  border: 1px solid #ffffff8c;
+  border-radius: 999px;
+  color: white;
+  background: linear-gradient(135deg, #ffffff3b, #ffffff12);
+  backdrop-filter: blur(22px) saturate(145%);
+  box-shadow:
+    0 14px 42px #00000024,
+    inset 0 1px #ffffff99;
+  transition: 0.35s;
+}
+.glass-nav.is-light {
+  color: var(--ink);
+  background: linear-gradient(135deg, #ffffffc7, #ecebe57a);
+  border-color: #ffffffd9;
+}
+.glass-nav > a {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+.glass-nav nav {
+  display: flex;
+}
+.glass-nav nav a {
+  padding: 0.62rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  transition: 0.25s;
+}
+.glass-nav nav a:hover {
+  background: #ffffff38;
+  transform: translateY(-1px);
+}
+.kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  position: relative;
+  padding-top: 24px;
+  margin-bottom: clamp(52px, 7vw, 96px);
+  opacity: 0.82;
+}
+.kicker::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(90vw, 1840px);
+  height: 1px;
+  background: currentColor;
+  opacity: 0.22;
+  transform: translateX(-50%);
+}
+.kicker span,
+.kicker b,
+.eyebrow {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.7s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  letter-spacing: 0;
+  word-break: keep-all;
+}
+p,
+blockquote {
+  margin-top: 0;
+}
+/* =========================================================
+   03 HERO 基础外观：背景、遮罩、按钮材质
+   具体位置请修改文件底部的“HERO 精确定位”。
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+}
+.hero > img,
+.concept > img,
+.ending > img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #08080799, #08080722 55%, transparent),
+    linear-gradient(0deg, #08080755, transparent 50%);
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: 55%;
+  padding-top: 4vh;
+}
+.hero h1 {
+  font-size: clamp(3.6rem, 7vw, 7.8rem);
+  line-height: 0.98;
+  margin: 0.8rem 0 1rem;
+  white-space: nowrap;
+}
+.hero-en {
+  font-size: clamp(0.8rem, 1.2vw, 1.05rem);
+  letter-spacing: 0.28em;
+  margin-bottom: 3rem;
+}
+.glass-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid #ffffff8c;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #ffffff42, #ffffff12);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 15px 42px #0003,
+    inset 0 1px #ffffffaa;
+  font-size: 0.85rem;
+  transition: 0.25s;
+}
+.glass-btn:hover {
+  transform: translateY(-2px);
+}
+.glass-btn small {
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  opacity: 0.7;
+}
+/* =========================================================
+   04 PROJECT OVERVIEW 项目概览
+   ========================================================= */
+.overview {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(60px, 10vw, 150px);
+}
+.overview h2,
+.heading h2 {
+  font-size: clamp(3.4rem, 7vw, 7.6rem);
+  line-height: 1.04;
+  margin: 0 0 3rem;
+}
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  max-width: 600px;
+}
+.overview dl {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.overview dl div {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+dt {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+dd {
+  margin: 0;
+  line-height: 1.65;
+}
+.overview-img {
+  width: 100vw;
+  max-width: none;
+  margin: clamp(70px, 10vw, 140px) 0 0;
+}
+.overview-img img {
+  width: 100%;
+  height: 100svh;
+  object-fit: cover;
+  object-position: center;
+}
+/* =========================================================
+   05 CREATIVE CONCEPT + NARRATIVE 三段故事
+   ========================================================= */
+.concept,
+.ending {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.concept > .shell {
+  position: relative;
+  z-index: 1;
+  padding-top: 0;
+}
+.concept h2 {
+  font-size: clamp(3rem, 6.5vw, 7rem);
+  line-height: 1.08;
+  margin: 1.2rem 0 2rem;
+}
+.concept p:last-child {
+  max-width: 540px;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 42px);
+  align-items: start;
+}
+.chapters article:nth-child(2) {
+  padding-top: 0;
+}
+.chapters article:nth-child(3) {
+  padding-top: 0;
+}
+.chapters img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 2rem;
+  transition: 0.3s;
+}
+.chapters article:nth-child(2) img {
+  aspect-ratio: 3/4;
+  object-position: 34% center;
+}
+.chapters article:nth-child(3) img {
+  object-position: 66% center;
+}
+.chapters img:hover {
+  transform: scale(1.012);
+}
+.chapters span,
+.visual-stage b,
+.prompt-assets b,
+.before b,
+.compare b,
+.final-video > b,
+.frames b {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+}
+.chapters h3 {
+  font-size: 2rem;
+  margin: 0.8rem 0;
+}
+.chapters p {
+  line-height: 1.8;
+  color: #444;
+}
+.heading {
+  display: grid;
+  grid-template-columns: 1.5fr 0.7fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: clamp(60px, 9vw, 120px);
+}
+.heading h2 {
+  margin: 0;
+}
+.heading p {
+  line-height: 1.8;
+}
+/* =========================================================
+   06 WORKFLOW 横向图片流程
+   每个 article 是一个制作阶段。
+   ========================================================= */
+.workflow-section {
+  overflow: hidden;
+}
+.workflow-carousel {
+  position: relative;
+  width: 100%;
+}
+.workflow-track {
+  width: min(96vw, 1920px);
+  margin-inline: auto;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-block: 1px solid var(--line);
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.workflow-track::-webkit-scrollbar {
+  display: none;
+}
+.workflow-track > a {
+  flex: 0 0 clamp(280px, 22vw, 360px);
+  min-width: 280px;
+  min-height: 500px;
+  padding: 1.7rem 1.7rem 2rem;
+  border-right: 1px solid var(--line);
+  scroll-snap-align: start;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+.workflow-track > a:last-child {
+  border-right: 0;
+}
+.workflow-track > a:hover,
+.workflow-track > a:focus-visible {
+  opacity: 0.7;
+  transform: translateY(-2px);
+  outline: none;
+}
+.workflow-track > a > span {
+  display: block;
+  margin-bottom: 1.7rem;
+  font-size: 0.62rem;
+  color: var(--muted);
+}
+.workflow-track img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+.workflow-track h3 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+.workflow-track small {
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.workflow-track p {
+  margin: 2rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: #66645f;
+}
+.workflow-arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  color: var(--ink);
+  background: rgba(245, 244, 239, 0.72);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  box-shadow: 0 10px 32px rgba(20, 20, 18, 0.14), inset 0 1px rgba(255, 255, 255, 0.8);
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.workflow-arrow:hover {
+  transform: translateY(-50%) scale(1.04);
+}
+.workflow-arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.workflow-arrow--prev {
+  left: 1.2vw;
+}
+.workflow-arrow--next {
+  right: 1.2vw;
+}
+.narrative-intro {
+  padding-top: clamp(48px, 6vw, 80px);
+  padding-bottom: clamp(24px, 3vw, 40px);
+}
+/* =========================================================
+   07 VISUAL DEVELOPMENT 图片切换区
+   ========================================================= */
+.tabs {
+  display: flex;
+  gap: 24px;
+  overflow: auto;
+  border-bottom: 1px solid var(--line);
+}
+.tabs button,
+.controls button {
+  border: 0;
+  background: none;
+  padding: 1rem 0;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tabs button[aria-selected="true"] {
+  border-bottom: 2px solid;
+}
+.visual-display {
+  transition: 0.25s;
+}
+.visual-display.switch {
+  opacity: 0.2;
+  transform: translateY(5px);
+}
+.visual-stage[hidden] {
+  display: none;
+}
+.visual-stage--three {
+  display: grid;
+  grid-template-columns: 1fr auto 1.25fr auto 1.65fr;
+  gap: 20px;
+  align-items: center;
+  padding: 55px 0 25px;
+}
+.visual-stage figure {
+  margin: 0;
+}
+.visual-stage b {
+  display: block;
+  margin-bottom: 0.8rem;
+}
+.visual-stage img {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.visual-stage i {
+  font-style: normal;
+  color: var(--muted);
+}
+.visual-stage--pairs {
+  padding: 36px 0 25px;
+}
+.visual-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1.35fr);
+  gap: 24px;
+  align-items: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+.visual-pair:first-child {
+  border-top: 0;
+}
+.visual-pair:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.visual-pair > i {
+  justify-self: center;
+}
+.visual-pair img {
+  width: 100%;
+  aspect-ratio: 16/10;
+}
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 26px;
+  align-items: center;
+}
+.controls span {
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+}
+/* =========================================================
+   08 CHARACTER CONSISTENCY 年龄与资产
+   ========================================================= */
+.ages {
+  font-size: clamp(2.7rem, 6vw, 7rem);
+  line-height: 1.06;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+.age-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 70px;
+}
+.age-strip figure {
+  margin: 0;
+  position: relative;
+  border-right: 1px solid var(--paper);
+}
+.age-strip img {
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+.age-strip b {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  color: #fff;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 12px #000;
+}
+.relation {
+  padding-top: 100px;
+}
+.relation > p {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+.relation > div {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 24px;
+  align-items: end;
+}
+.relation > div img {
+  height: 100%;
+  object-fit: cover;
+}
+.relation > div p {
+  line-height: 1.8;
+}
+.relation aside {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 90px;
+}
+.relation aside img {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+/* =========================================================
+   09 CASE STUDY 共用标题 + CASE 01
+   ========================================================= */
+.case-head {
+  display: grid;
+  grid-template-columns: 1.4fr 0.7fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 90px;
+}
+.case-head h2 {
+  font-size: clamp(3.5rem, 8vw, 8.4rem);
+  line-height: 1.04;
+  margin: 0 0 1.5rem;
+}
+.case-head > div > p {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+}
+.case-head blockquote {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  line-height: 1.65;
+}
+.case-head--spatial {
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+}
+.case-head--spatial blockquote {
+  white-space: nowrap;
+}
+.case-head--prompt {
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+}
+.case-head--prompt blockquote {
+  white-space: nowrap;
+}
+.case-head.light {
+  color: var(--ink);
+}
+.before {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.before figure,
+.final-video {
+  margin: 0;
+}
+.before b,
+.final-video > b {
+  display: block;
+  margin-bottom: 0.8rem;
+}
+.before img,
+.before video,
+.final-video video,
+.film {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  background: #000;
+}
+.tags {
+  display: flex;
+  gap: 12px;
+  padding: 24px 0 90px;
+}
+.tags span {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #ffffff33;
+  border-radius: 999px;
+  font-size: 0.72rem;
+}
+.methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-block: 1px solid #ffffff33;
+}
+.methods article {
+  padding: 2rem;
+  border-right: 1px solid #ffffff33;
+}
+.methods article:last-child {
+  border: 0;
+}
+.methods span,
+.methods b {
+  font-size: 0.6rem;
+  letter-spacing: 0.13em;
+  color: #aaa;
+}
+.methods h3 {
+  font-size: 1.7rem;
+  margin: 2rem 0 0.5rem;
+}
+.methods p {
+  line-height: 1.7;
+  color: #bbb;
+}
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  gap: 20px;
+  align-items: center;
+  margin: 100px 0;
+}
+.compare figure {
+  margin: 0;
+}
+.compare img {
+  margin-top: 0.8rem;
+}
+.compare > div {
+  text-align: center;
+}
+.compare small {
+  display: block;
+  color: #aaa;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+.final-video {
+  max-width: 980px;
+  margin: auto;
+}
+.statement,
+.iteration-end {
+  text-align: center;
+  font-size: clamp(2rem, 4.4vw, 4.6rem);
+  line-height: 1.3;
+  max-width: 1050px;
+  margin: clamp(120px, 16vw, 220px) auto 40px;
+  word-break: keep-all;
+}
+/* =========================================================
+   10 CASE 02 Prompt Anatomy
+   ========================================================= */
+.prompt-assets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.prompt-assets figure {
+  margin: 0;
+}
+.prompt-assets img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  margin-bottom: 0.7rem;
+}
+.anatomy-head {
+  margin: 180px 0 80px;
+}
+.anatomy-head > b {
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+}
+.anatomy-head h2 {
+  font-size: clamp(3rem, 6vw, 6.8rem);
+  line-height: 1.08;
+}
+.prompt-doc {
+  max-width: 1100px;
+  margin: auto;
+}
+.prompt-doc article {
+  display: grid;
+  grid-template-columns: 42px 1.5fr 0.7fr;
+  gap: 28px;
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+  transition: 0.25s;
+}
+.prompt-doc article:hover {
+  background: #9b5d420b;
+}
+.prompt-doc i {
+  font-style: normal;
+  font-size: 0.62rem;
+  color: var(--accent);
+}
+.prompt-doc p {
+  font-size: clamp(1rem, 1.45vw, 1.25rem);
+  line-height: 1.95;
+  margin: 0;
+}
+.prompt-doc aside {
+  border-left: 1px solid var(--accent);
+  padding-left: 18px;
+}
+.prompt-doc aside b {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.7rem;
+}
+.prompt-doc aside span {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.prompt-video {
+  margin: 150px 0 0;
+}
+.prompt-video video {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  background: #000;
+}
+.prompt-video figcaption {
+  max-width: 700px;
+  text-align: center;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 24px auto;
+}
+#case-02 {
+  padding-bottom: clamp(45px, 5vw, 75px);
+}
+#iteration {
+  padding-top: clamp(45px, 5vw, 75px);
+}
+/* =========================================================
+   11 ITERATION LAB 三组 Before / After
+   ========================================================= */
+.iterations {
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+.iterations > article {
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
+}
+.iterations > article > header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: baseline;
+  margin-bottom: 45px;
+}
+.iterations > article > header b {
+  justify-self: end;
+}
+.iterations header span,
+.iterations header b {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+.iterations h3 {
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  margin: 0;
+  text-align: center;
+}
+.video-pair {
+  display: grid;
+  grid-template-columns: 1fr 70px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+.video-pair figure {
+  margin: 0;
+}
+.video-pair figure > b {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.7rem;
+}
+.video-pair video {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  background: #111;
+}
+.video-pair > i {
+  text-align: center;
+  font-style: normal;
+}
+.video-pair small {
+  display: block;
+  font-size: 0.58rem;
+  margin-top: 0.5rem;
+}
+.iterations dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 42px;
+}
+.iterations dl div {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.iterations dd {
+  color: #555;
+}
+.revision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-top: 60px;
+}
+.revision article {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.revision article > b {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+.revision p {
+  font-size: 0.82rem;
+  line-height: 1.85;
+  color: #4c4b47;
+}
+.revision p span {
+  background: #9b5d4224;
+  border-bottom: 1px solid var(--accent);
+}
+.refs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 24px 0;
+  border-block: 1px solid var(--line);
+  margin: 55px 0;
+}
+.refs span {
+  font-size: 0.8rem;
+}
+.refs b {
+  grid-column: 1/-1;
+}
+.iteration-end {
+  font-size: clamp(1.8rem, 3.7vw, 4rem);
+}
+/* =========================================================
+   12 FINAL FILM + SELECTED FRAMES 横向画廊
+   ========================================================= */
+.final-film {
+  padding-bottom: 100px;
+}
+.film-head {
+  text-align: center;
+  padding: 25px 0 90px;
+}
+.film-head h2 {
+  font-size: clamp(3.7rem, 8vw, 8rem);
+  line-height: 1.05;
+  margin: 0 0 28px;
+}
+.film-head p {
+  letter-spacing: 0.28em;
+  margin-bottom: 22px;
+}
+.film-head span {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: #aaa;
+}
+.frames {
+  margin-top: 130px;
+}
+.frames h3 {
+  font-size: 2rem;
+  margin: 0.7rem 0 28px;
+}
+.strip-carousel {
+  position: relative;
+  overflow: hidden;
+}
+.strip-viewport {
+  overflow: hidden;
+  padding: 0 max(32px, calc((100vw - 1180px) / 2)) 35px;
+}
+.strip {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: selected-frames-marquee 90s linear infinite;
+  will-change: transform;
+}
+.strip-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 20px;
+  padding-right: 20px;
+}
+@keyframes selected-frames-marquee {
+  to { transform: translateX(-50%); }
+}
+.strip {
+  cursor: grab;
+}
+.strip.drag {
+  cursor: grabbing;
+  animation-play-state: paused;
+}
+.strip img {
+  flex: 0 0 min(520px, 78vw);
+  width: min(520px, 78vw);
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  transition: 0.3s;
+}
+.strip img:hover {
+  transform: scale(1.015);
+}
+.strip .xl {
+  width: min(520px, 78vw);
+}
+.strip .md {
+  width: min(520px, 78vw);
+}
+.strip .sm {
+  width: min(520px, 78vw);
+  margin-bottom: 0;
+}
+.strip-arrow {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.08));
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.32), inset 0 1px rgba(255, 255, 255, 0.65);
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.strip-arrow:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+.strip-arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.strip-arrow--prev {
+  left: 24px;
+}
+.strip-arrow--next {
+  right: 24px;
+}
+.ending {
+  align-items: center;
+  justify-content: center;
+}
+.ending blockquote {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: clamp(2rem, 4.2vw, 4.8rem);
+  line-height: 1.3;
+  max-width: 1050px;
+  padding: 24px;
+  word-break: keep-all;
+}
+.ending footer {
+  position: absolute;
+  z-index: 1;
+  bottom: 24px;
+  width: var(--shell);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+}
+.ending footer a {
+  width: 46px;
+  height: 46px;
+  border: 1px solid #ffffff66;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ffffff1f;
+  backdrop-filter: blur(16px);
+}
+/* =========================================================
+   13 平板适配：屏幕宽度小于 900px 时生效
+   ========================================================= */
+@media (max-width: 900px) {
+  :root {
+    --shell: min(100% - 40px, 760px);
+  }
+  .hero-copy {
+    padding-right: 36%;
+  }
+  .overview,
+  .heading,
+  .case-head {
+    grid-template-columns: 1fr;
+  }
+  .case-head--spatial blockquote {
+    white-space: normal;
+  }
+  .case-head--prompt blockquote {
+    white-space: normal;
+  }
+  .chapters {
+    grid-template-columns: 1fr;
+  }
+  .chapters article {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 26px;
+    align-items: center;
+    padding: 0 !important;
+  }
+  .chapters article img {
+    grid-row: 1/5;
+  }
+  .chapters article:nth-child(even) img {
+    grid-column: 2;
+  }
+  .visual-stage--three {
+    grid-template-columns: 1fr 24px 1fr;
+  }
+  .visual-stage--three figure:last-of-type {
+    grid-column: 1/-1;
+  }
+  .visual-stage--three > i:last-of-type {
+    display: none;
+  }
+  .visual-pair {
+    grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1.2fr);
+    gap: 14px;
+  }
+  .ages {
+    white-space: normal;
+  }
+  .relation > div {
+    grid-template-columns: 1fr 2fr;
+  }
+  .relation > div p {
+    grid-column: 1/-1;
+  }
+  .prompt-doc article {
+    grid-template-columns: 32px 1fr;
+  }
+  .prompt-doc aside {
+    grid-column: 2;
+  }
+  .iterations > article > header {
+    grid-template-columns: 1fr;
+  }
+  .revision {
+    grid-template-columns: 1fr;
+  }
+  .workflow-track {
+    width: 94vw;
+  }
+  .workflow-track > a {
+    flex-basis: min(72vw, 340px);
+  }
+}
+/* =========================================================
+   14 手机适配：屏幕宽度小于 600px 时生效
+   ========================================================= */
+@media (max-width: 600px) {
+  :root {
+    --shell: calc(100vw - 32px);
+  }
+  .section {
+    padding: 86px 0;
+  }
+  .glass-nav {
+    top: 0.6rem;
+  }
+  .glass-nav > a {
+    font-size: 0.56rem;
+  }
+  .glass-nav nav a {
+    font-size: 0.67rem;
+    padding: 0.55rem 0.48rem;
+  }
+  .glass-nav nav a:nth-child(2) {
+    display: none;
+  }
+  .hero > img {
+    object-position: 58% center;
+  }
+  .hero-copy {
+    justify-content: flex-start;
+    padding-top: 25vh;
+    padding-right: 15%;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 14vw, 4.6rem);
+    white-space: normal;
+  }
+  .hero-en {
+    letter-spacing: 0.18em;
+  }
+  .kicker {
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .overview h2,
+  .heading h2 {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+  }
+  .concept h2 {
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+  }
+  .chapters article {
+    display: block;
+  }
+  .chapters article:nth-child(even) img {
+    grid-column: auto;
+  }
+  .chapters img {
+    aspect-ratio: 3/4 !important;
+  }
+  .visual-stage--three {
+    grid-template-columns: 1fr;
+  }
+  .visual-stage--three > i,
+  .visual-pair > i {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+  .visual-stage--three figure:last-of-type {
+    grid-column: auto;
+  }
+  .visual-stage--three > i:last-of-type {
+    display: block;
+  }
+  .visual-pair {
+    grid-template-columns: 1fr;
+    padding: 30px 0;
+  }
+  .age-strip {
+    display: flex;
+    overflow: auto;
+  }
+  .age-strip figure {
+    flex: 0 0 78vw;
+  }
+  .ages {
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+  }
+  .relation > div {
+    grid-template-columns: 1fr;
+  }
+  .relation > div p {
+    grid-column: auto;
+  }
+  .relation aside {
+    display: flex;
+    overflow: auto;
+  }
+  .relation aside img {
+    flex: 0 0 72vw;
+  }
+  .case-head h2 {
+    font-size: clamp(3rem, 15vw, 5.2rem);
+    line-height: 1.08;
+  }
+  .before,
+  .methods {
+    grid-template-columns: 1fr;
+  }
+  .methods article {
+    border-right: 0;
+    border-bottom: 1px solid #ffffff33;
+  }
+  .compare {
+    grid-template-columns: 1fr;
+    margin: 75px 0;
+  }
+  .prompt-assets {
+    display: flex;
+    overflow: auto;
+  }
+  .prompt-assets figure {
+    flex: 0 0 78vw;
+  }
+  .statement,
+  .iteration-end {
+    font-size: clamp(1.7rem, 8vw, 2.8rem);
+    line-height: 1.35;
+    margin-top: 100px;
+  }
+  .anatomy-head h2 {
+    font-size: clamp(2.8rem, 13vw, 4.4rem);
+  }
+  .prompt-doc article {
+    grid-template-columns: 26px 1fr;
+    gap: 14px;
+  }
+  .prompt-doc p {
+    font-size: 1rem;
+  }
+  .prompt-doc aside {
+    grid-column: 2;
+  }
+  .video-pair {
+    grid-template-columns: 1fr;
+  }
+  .iterations dl {
+    grid-template-columns: 1fr;
+  }
+  .refs {
+    grid-template-columns: 1fr;
+  }
+  .film-head {
+    padding-bottom: 60px;
+  }
+  .strip {
+    animation-duration: 90s;
+  }
+  .strip-viewport {
+    padding-inline: 16px;
+  }
+  .strip-arrow {
+    width: 46px;
+    height: 46px;
+  }
+  .strip-arrow--prev {
+    left: 12px;
+  }
+  .strip-arrow--next {
+    right: 12px;
+  }
+  .ending blockquote {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+  }
+  .workflow-track > a {
+    min-width: 78vw;
+    min-height: 460px;
+    padding: 1.35rem 1.2rem 1.8rem;
+  }
+  .workflow-track img {
+    aspect-ratio: 16 / 9;
+  }
+  .workflow-arrow {
+    width: 44px;
+    height: 44px;
+  }
+  .workflow-arrow--prev {
+    left: 3vw;
+  }
+  .workflow-arrow--next {
+    right: 3vw;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* =========================================================
+   15 HERO 精确定位——你最常修改的区域
+   ========================================================= */
+/*
+  HERO 修改指南：
+  left  = 水平位置，数值越大越靠右。
+  top   = 垂直位置，数值越大越靠下。
+  font-size: clamp(最小字号, 随屏幕变化的字号, 最大字号)。
+  桌面端位置在下面修改；手机端位置在最后的 max-width:600px 中修改。
+*/
+.hero-copy {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  min-height: 0;
+  display: block;
+  padding: 0;
+  width: 100%;
+}
+.hero-copy > .eyebrow {
+  position: absolute;
+  left: 12%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  white-space: nowrap;
+}
+.hero-title-group {
+  position: absolute;
+  left: 30%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  max-width: 74vw;
+  text-align: center;
+}
+.hero-title-group h1 {
+  font-size: clamp(6rem, 11.5vw, 13rem);
+  font-weight: 700;
+  line-height: 0.86;
+  margin: 0;
+  white-space: nowrap;
+  letter-spacing: -0.025em;
+}
+.hero-title-group .hero-en {
+  margin: 2.2rem 0 0;
+  font-size: clamp(0.82rem, 1.45vw, 1.35rem);
+  letter-spacing: 0.46em;
+  white-space: nowrap;
+  text-align: center;
+}
+.hero-quote {
+  position: absolute;
+  left: 20%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  margin: 0;
+  font-size: clamp(1rem, 1.5vw, 1.55rem);
+  line-height: 1.75;
+}
+.hero-copy > .glass-btn {
+  position: absolute;
+  right: 3%;
+  top: 90%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.65rem 1.2rem 0.65rem 0.68rem;
+}
+.hero-copy > .glass-btn:hover {
+  transform: translateY(calc(-50% - 2px));
+}
+.play-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffffff80;
+  border-radius: 50%;
+  font-size: 0.68rem;
+}
+@media (max-width: 900px) {
+  .hero-title-group h1 {
+    font-size: clamp(5rem, 12vw, 8rem);
+  }
+  .hero-quote {
+    left: 13%;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .hero-copy {
+    padding: 0;
+  }
+  .hero-copy > .eyebrow {
+    left: 50%;
+    top: 15%;
+    font-size: 0.52rem;
+  }
+  .hero-title-group {
+    left: 50%;
+    top: 34%;
+    max-width: 92vw;
+    text-align: center;
+  }
+  .hero-title-group h1 {
+    font-size: clamp(3.7rem, 17vw, 5.3rem);
+    white-space: nowrap;
+  }
+  .hero-title-group .hero-en {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    margin-top: 1.4rem;
+  }
+  .hero-quote {
+    left: 16px;
+    top: 78%;
+    transform: none;
+    font-size: 0.92rem;
+  }
+  .hero-copy > .glass-btn {
+    right: 16px;
+    top: 89%;
+    padding: 0.55rem 1rem 0.55rem 0.58rem;
+  }
+  .play-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/*
+  常用 CSS 选择器索引：
+  .glass-nav         顶部玻璃导航
+  .hero-copy         Hero 内所有文字和按钮的定位容器
+  .hero-copy>.eyebrow  Hero 顶部 AIGC 信息
+  .hero-title-group  Hero 中英文标题整体位置
+  .hero-title-group h1  Hero 中文标题字号
+  .hero-quote        Hero 左下角两行文案
+  .glass-btn         Hero 观看按钮
+  .overview          项目概览双栏布局
+  .concept           创意概念全屏背景
+  .chapters          三段人物故事布局
+  .timeline          制作流程横向区域
+  .visual-stage      Reference / Asset / Final 图片布局
+  .age-strip         年龄图片布局
+  .case-head         两个 Case Study 的大标题区域
+  .prompt-doc        完整 Prompt 与旁注
+  .video-pair        Iteration Before / After 视频
+  .strip             最终精选画面横向轨道
+
+  提醒：文件前面的 @media(max-width:900px) 是平板规则，
+  @media(max-width:600px) 是手机规则，它们可能覆盖桌面端数值。
+*/

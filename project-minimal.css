@@ -1,0 +1,224 @@
+.mini-project {
+  --mini-ink: #18151c;
+  --mini-muted: #625b67;
+  --mini-purple: #514363;
+  min-height: 100vh;
+  color: var(--mini-ink);
+  background: #eee6fa;
+}
+
+.mini-project main {
+  width: min(100% - clamp(32px, 8vw, 120px), 1320px);
+  margin-inline: auto;
+  padding: 1px 0 0;
+}
+
+.mini-nav {
+  z-index: 100;
+  width: min(92vw, 540px);
+  min-height: 50px;
+  padding: 0.35rem 0.55rem 0.35rem 1.2rem;
+  color: #29232f;
+  border-color: #ffffffbb;
+  background: linear-gradient(135deg, #fffdf2e0, #f8f5f0b8);
+  box-shadow: 0 12px 32px #382d4514, inset 0 1px #ffffffed;
+  backdrop-filter: blur(20px) saturate(125%);
+}
+
+.mini-nav > a {
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+.mini-nav nav a {
+  padding: 0.58rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+}
+
+.mini-nav nav a:hover,
+.mini-nav nav a:focus-visible {
+  background: #ffffffa8;
+}
+
+.mini-hero {
+  display: flex;
+  min-height: min(61vh, 620px);
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 140px 0 clamp(2.5rem, 6vw, 5rem);
+  border-bottom: 1px solid #51436330;
+}
+
+.mini-category,
+.mini-label {
+  margin: 0;
+  color: var(--mini-purple);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.mini-hero h1 {
+  margin: 1rem 0 0;
+  font-family: "Bodoni MT", "Didot", "Bodoni 72", Georgia, serif;
+  font-size: clamp(4rem, 11vw, 9rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+}
+
+.mini-english {
+  margin: 0.8rem 0 0;
+  color: var(--mini-muted);
+  font-family: "Bodoni MT", "Didot", Georgia, serif;
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  font-style: italic;
+}
+
+.mini-description {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(210px, 0.65fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  border-bottom: 1px solid #51436330;
+}
+
+.mini-copy {
+  max-width: 720px;
+  margin: 1rem 0 0;
+  color: #46404c;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  line-height: 1.9;
+}
+
+.mini-roles {
+  color: var(--mini-ink);
+  white-space: normal;
+}
+
+.mini-roles span {
+  padding-inline: 0.22rem;
+  color: var(--mini-purple);
+}
+
+.mini-warning {
+  grid-column: 1 / -1;
+  margin: 0.25rem 0 0;
+  color: #713d58;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.mini-film {
+  padding-top: clamp(2.4rem, 5vw, 4.2rem);
+}
+
+.mini-film-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+  color: var(--mini-muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+}
+
+.mini-video-frame {
+  overflow: hidden;
+  border: 1px solid #ffffffc0;
+  border-radius: 18px;
+  background: #151218;
+  box-shadow: 0 20px 60px #3328401e;
+}
+
+.mini-video-frame video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #151218;
+  object-fit: contain;
+}
+
+.mini-return {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 0 clamp(3rem, 7vw, 6rem);
+}
+
+.mini-return .glass-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 1rem;
+  border-color: #ffffffd0;
+  color: #30283a;
+  background: #ffffff58;
+  box-shadow: 0 8px 22px #382d4512, inset 0 1px #ffffffd9;
+  backdrop-filter: blur(16px) saturate(130%);
+  font-size: 0.72rem;
+}
+
+.mini-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.1rem clamp(18px, 4vw, 58px);
+  color: var(--mini-muted);
+  background: #faf8f4;
+  font-size: 0.66rem;
+}
+
+.mini-project :focus-visible {
+  outline: 2px solid var(--mini-purple);
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .mini-project main {
+    width: calc(100% - 36px);
+  }
+
+  .mini-nav {
+    top: 0.6rem;
+    width: calc(100vw - 20px);
+    min-height: 48px;
+  }
+
+  .mini-nav nav a {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.64rem;
+  }
+
+  .mini-hero {
+    min-height: 52svh;
+    padding-bottom: 2rem;
+  }
+
+  .mini-hero h1 {
+    font-size: clamp(3.8rem, 17vw, 6rem);
+  }
+
+  .mini-description {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .mini-video-frame {
+    border-radius: 12px;
+  }
+
+  .mini-return .glass-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-project *,
+  .mini-project *::before,
+  .mini-project *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

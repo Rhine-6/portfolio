@@ -1,0 +1,36 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local editor settings and logs
+.vscode/
+.idea/
+*.log
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+
+# Dependencies and temporary caches (the site currently has none)
+node_modules/
+.cache/
+tmp/
+
+# Unreferenced assets excluded from the website package
+/assets/case2-character.png
+/assets/case2-turnaround.png
+/assets/escape/unity-scripts.png
+/assets/factory-weld.png
+/assets/find-yourself/poster.jpg
+/assets/iteration-composition.png
+/assets/iteration-direction.png
+/assets/iteration-transition-after.png
+/assets/iteration-transition-before.jpg
+/assets/processing/poster.jpg
+/assets/vehicle-asset.jpg
+
+# Large original videos kept locally, excluded from the GitHub repository.
+/assets/final-film.mp4
+/assets/escape/full-demo.mp4
